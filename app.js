@@ -4,8 +4,8 @@ var me={lat:27.0844,lng:93.6053,live:false},filter="open",stores=[],pin=null,edi
 var $=function(i){return document.getElementById(i)};
 function num(v){var n=Number(v);return Number.isFinite(n)?n:NaN}
 function validPoint(lat,lng){return Number.isFinite(lat)&&Number.isFinite(lng)&&lat>=-90&&lat<=90&&lng>=-180&&lng<=180}
-function tm(v,d){v=String(v||"");return /^([01]\\d|2[0-3]):[0-5]\\d$/.test(v)?v:d}
-function cph(v){return String(v||"").replace(/[^0-9+()\\- ]/g,"").trim().slice(0,20)}
+function tm(v,d){v=String(v||"");return /^([01]\d|2[0-3]):[0-5]\d$/.test(v)?v:d}
+function cph(v){return String(v||"").replace(/[^0-9+()\- ]/g,"").trim().slice(0,20)}
 var TYPES=["Grocery","Medical / Pharmacy","Petrol pump","Food / Dhaba","Other"];
 function clean(s){if(!s||typeof s!=="object"||Array.isArray(s))return null;
 var lat=num(s.lat),lng=num(s.lng),id=num(s.id),n=String(s.n||"").trim().slice(0,80),t=String(s.t||"");
@@ -26,7 +26,7 @@ var q=[["🏪 24-hour store","24 hour store"],["💊 Pharmacy","pharmacy open no
 $("gm").innerHTML=q.map(function(x){return '<button class="chip'+(x[1]===curQ?' on':'')+'" data-q="'+x[1]+'">'+x[0]+'</button>'}).join("")
 +'<a class="btn gl" target="_blank" rel="noopener noreferrer" href="#">Open in Google Maps ↗</a>'}
 $("gm").querySelector(".gl").href="https://www.google.com/maps/search/"+encodeURIComponent(curQ)+"/@"+me.lat+","+me.lng+",15z";
-var s="https://maps.google.com/maps?q="+encodeURIComponent(curQ+" near "+me.lat.toFixed(3)+","+me.lng.toFixed(3))+"&z=15&output=embed",now=Date.now();
+var s="https://maps.google.com/maps?q="+encodeURIComponent(curQ+" near "+me.lat.toFixed(2)+","+me.lng.toFixed(2))+"&z=15&output=embed",now=Date.now();
 if(s!==lastSrc&&(!me.live||curQ!==lastQ||now-lastMapT>15000)){lastSrc=s;lastQ=curQ;lastMapT=now;$("map").src=s}}
 function sched(){if(!raf)raf=requestAnimationFrame(function(){raf=0;render()})}
 $("gm").onclick=function(e){var q=e.target.getAttribute("data-q");if(q){curQ=q;gmLinks()}};
