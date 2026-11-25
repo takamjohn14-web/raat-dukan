@@ -1,21 +1,13 @@
 # Security Policy
 
-## Supported Versions
+Raat Dukan is a static web page. It has no server, no database, no accounts and no API keys. Store entries are saved only in the visitor's own browser (localStorage).
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Supported versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Only the latest version on the `main` branch is supported.
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you find a security problem, please do not post it publicly. Report it privately to: **REPLACE-WITH-YOUR-EMAIL**
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please include what you found and the steps to reproduce it. I will reply as soon as I can.
